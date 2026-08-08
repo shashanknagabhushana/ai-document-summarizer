@@ -1,0 +1,4 @@
+Artificial intelligence is becoming an important technology in modern software development. 
+It can help automate repetitive tasks, analyze large amounts of information, and improve productivity. 
+AI-powered document summarization can reduce the time required to read long documents by identifying 
+important information and presenting it in a shorter form.
