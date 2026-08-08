@@ -1,294 +1,223 @@
 # 📄 AI Document Summarizer
 
-> **A modern web application for uploading documents, extracting their content, generating concise summaries, identifying key points, and downloading the results.**
+<p align="center">
+  <strong>Upload documents. Extract important information. Get a concise summary.</strong>
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python\&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi\&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-Frontend-E34F26?logo=html5\&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?logo=css3\&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?logo=javascript\&logoColor=black)
-![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center">
+  A web-based document processing application built with Python, FastAPI, HTML, CSS, and JavaScript.
+</p>
 
 ---
 
-## 🌟 Overview
+## 🚀 Overview
 
-**AI Document Summarizer** is a web-based document processing application designed to make long documents easier to understand.
+**AI Document Summarizer** is a web application that helps users quickly understand the contents of documents.
 
-Users can upload supported documents and receive:
+Users can upload **PDF, DOCX, or TXT** files. The application extracts the text, processes the content, generates a concise summary, identifies key points, displays document statistics, and allows the user to download the results.
 
-* 📝 A concise summary
-* 📌 Important key points
-* 🔢 Word count
-* 🔤 Character count
-* 📥 A downloadable summary
-
-The application provides a simple interface while using a **FastAPI backend** to handle document uploads and text processing.
-
-> **Current version:** The summarization functionality uses lightweight local text processing and does not require an external AI API key.
+The current version uses a **lightweight local text-processing approach**, so **no external AI API key is required**.
 
 ---
 
 ## ✨ Features
 
-### 📤 Document Upload
-
-Upload documents directly through the web interface.
-
-Supported formats:
-
-| File Type | Supported |
-| --------- | :-------: |
-| 📕 PDF    |     ✅     |
-| 📘 DOCX   |     ✅     |
-| 📄 TXT    |     ✅     |
-
----
-
-### 📝 Automatic Summarization
-
-The application processes the extracted document text and produces a concise summary.
-
-This makes it easier to quickly understand the main content without reading the entire document.
+| Feature            | Description                          |
+| ------------------ | ------------------------------------ |
+| 📤 Document Upload | Upload PDF, DOCX, and TXT files      |
+| 📄 Text Extraction | Extract readable text from documents |
+| 📝 Summarization   | Generate a concise summary           |
+| 📌 Key Points      | Extract important sentences          |
+| 🔢 Word Count      | Display total number of words        |
+| 🔤 Character Count | Display total number of characters   |
+| 📥 Download        | Download the generated summary       |
+| 📱 Responsive UI   | Works on desktop and mobile screens  |
+| ⚡ FastAPI Backend  | Fast and lightweight Python backend  |
+| 🔒 File Validation | Validate supported document formats  |
 
 ---
 
-### 📌 Key Point Extraction
-
-Important sentences are extracted and presented as easy-to-read bullet points.
-
-This allows users to quickly identify the major information contained in the document.
-
----
-
-### 📊 Document Statistics
-
-The application displays useful document statistics:
-
-* Total word count
-* Total character count
-* Uploaded filename
-
----
-
-### 📥 Download Summary
-
-Users can download the generated summary and key points as a `.txt` file for later use.
-
----
-
-### 📱 Responsive Interface
-
-The frontend is designed to work across:
-
-* 💻 Desktop
-* 💻 Laptop
-* 📱 Mobile
-
----
-
-## 🖥️ Application Preview
-
-### Upload Interface
-
-The application provides a clean upload interface where users can select their document.
+## 🖥️ Application Workflow
 
 ```text
-┌──────────────────────────────────────────┐
-│                                          │
-│              📄                          │
-│                                          │
-│       Upload your document               │
-│                                          │
-│      PDF • DOCX • TXT                    │
-│                                          │
-│          [ Choose File ]                 │
-│                                          │
-└──────────────────────────────────────────┘
-
-          [ Summarize Document ]
-```
-
-### Results
-
-After processing:
-
-```text
-┌──────────────────────────────────────────┐
-│          Document Summary                │
-│                                          │
-│  Words              Characters           │
-│  245                 1,482                │
-│                                          │
-│  📝 Summary                              │
-│  ──────────────────────────────────────  │
-│  Concise document summary appears here.  │
-│                                          │
-│  📌 Key Points                           │
-│  • Important point one                   │
-│  • Important point two                   │
-│  • Important point three                 │
-│                                          │
-│       [ Download Summary ]               │
-└──────────────────────────────────────────┘
+             ┌──────────────────┐
+             │      User        │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Upload Document  │
+             │ PDF / DOCX / TXT │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │   FastAPI API    │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │  Text Extraction │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Text Processing  │
+             └────────┬─────────┘
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+      Summary    Key Points   Statistics
+          │           │           │
+          └───────────┼───────────┘
+                      ▼
+             ┌──────────────────┐
+             │ Display Results  │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Download Summary │
+             └──────────────────┘
 ```
 
 ---
 
-# 🏗️ System Architecture
+## 📁 Supported Documents
 
-```text
-                    ┌───────────────────┐
-                    │       User        │
-                    └─────────┬─────────┘
-                              │
-                              ▼
-                    ┌───────────────────┐
-                    │   Web Frontend    │
-                    │ HTML / CSS / JS   │
-                    └─────────┬─────────┘
-                              │
-                              │ HTTP Request
-                              ▼
-                    ┌───────────────────┐
-                    │   FastAPI Server  │
-                    │     Backend       │
-                    └─────────┬─────────┘
-                              │
-                              ▼
-                    ┌───────────────────┐
-                    │ Document Upload   │
-                    │ & Validation      │
-                    └─────────┬─────────┘
-                              │
-                              ▼
-                    ┌───────────────────┐
-                    │  Text Extraction  │
-                    │ PDF / DOCX / TXT  │
-                    └─────────┬─────────┘
-                              │
-                              ▼
-                    ┌───────────────────┐
-                    │ Text Processing   │
-                    └─────────┬─────────┘
-                              │
-                 ┌────────────┼────────────┐
-                 ▼            ▼            ▼
-             Summary      Key Points    Statistics
-                 │            │            │
-                 └────────────┼────────────┘
-                              ▼
-                    ┌───────────────────┐
-                    │   Results Page    │
-                    └─────────┬─────────┘
-                              │
-                              ▼
-                    ┌───────────────────┐
-                    │ Download Summary  │
-                    └───────────────────┘
-```
+| Format  | Support |
+| ------- | :-----: |
+| 📕 PDF  |    ✅    |
+| 📘 DOCX |    ✅    |
+| 📄 TXT  |    ✅    |
 
 ---
 
-# 🧰 Technology Stack
+## 🛠️ Technology Stack
 
-## Backend
+### Backend
 
-| Technology         | Purpose                     |
-| ------------------ | --------------------------- |
-| 🐍 Python          | Core programming language   |
-| ⚡ FastAPI          | REST API and backend server |
-| 📄 PDF processing  | PDF text extraction         |
-| 📝 DOCX processing | DOCX text extraction        |
+* **Python** — Core programming language
+* **FastAPI** — Backend API framework
+* **Uvicorn** — ASGI server
+* **PDF/DOCX processing libraries** — Document text extraction
 
-## Frontend
+### Frontend
 
-| Technology | Purpose                                |
-| ---------- | -------------------------------------- |
-| HTML5      | Page structure                         |
-| CSS3       | Styling and responsive design          |
-| JavaScript | User interaction and API communication |
+* **HTML5** — Application structure
+* **CSS3** — Styling and responsive design
+* **JavaScript** — Frontend logic and API communication
+
+### Development Tools
+
+* **Git**
+* **GitHub**
+* **Virtual Environment**
 
 ---
 
-# 📁 Project Structure
+## 📂 Project Structure
 
 ```text
 ai-document-summarizer/
 │
 ├── backend/
-│   │
 │   ├── main.py
-│   │   ├── FastAPI application
-│   │   ├── document upload endpoint
-│   │   └── API routes
-│   │
 │   ├── summarizer.py
-│   │   ├── summary generation
-│   │   ├── key point extraction
-│   │   └── word counting
-│   │
 │   └── utils.py
-│       └── document text extraction
 │
 ├── frontend/
-│   │
 │   ├── index.html
-│   │   └── Application interface
-│   │
 │   ├── style.css
-│   │   └── Responsive styling
-│   │
 │   └── script.js
-│       └── Frontend logic and API communication
 │
 ├── uploads/
-│   └── Uploaded documents
 │
 ├── .env
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── README.md
+└── requirements.txt
 ```
+
+### Backend
+
+`main.py`
+
+Handles:
+
+* FastAPI application
+* API routes
+* File uploads
+* File validation
+* Serving the frontend
+
+`utils.py`
+
+Handles document text extraction.
+
+`summarizer.py`
+
+Handles:
+
+* Text summarization
+* Key-point extraction
+* Word counting
+
+### Frontend
+
+`index.html`
+
+Provides the application interface.
+
+`style.css`
+
+Provides the visual design and responsive layout.
+
+`script.js`
+
+Handles:
+
+* File selection
+* API requests
+* Displaying results
+* Downloading summaries
 
 ---
 
-# 🔄 Application Workflow
+# 🔄 How It Works
 
-The application follows this process:
+### 1. Select a document
 
-### 1️⃣ Select Document
+The user selects a PDF, DOCX, or TXT file.
 
-The user selects a PDF, DOCX, or TXT document.
+### 2. Upload the document
 
-### 2️⃣ Upload
+The frontend sends the selected document to the FastAPI backend.
 
-The frontend sends the document to the FastAPI `/upload` endpoint.
+### 3. Validate the file
 
-### 3️⃣ Validate
+The backend checks whether the document format is supported.
 
-The backend checks whether the uploaded file has a supported extension.
+### 4. Extract the text
 
-### 4️⃣ Extract Text
+The application extracts readable text from the uploaded document.
 
-The backend extracts readable text from the uploaded document.
+### 5. Process the text
 
-### 5️⃣ Process
-
-The extracted text is processed to generate:
+The extracted content is processed to generate:
 
 * Summary
 * Key points
 * Word count
 * Character count
 
-### 6️⃣ Display Results
+### 6. Display the results
 
-The results are returned to the frontend and displayed in a clean interface.
+The processed information is returned to the frontend and displayed to the user.
 
-### 7️⃣ Download
+### 7. Download
 
-The user can download the summary as a text file.
+The user can download the summary and key points as a text file.
 
 ---
 
@@ -296,13 +225,7 @@ The user can download the summary as a text file.
 
 ## `GET /`
 
-Returns the main application interface.
-
-### Response
-
-```text
-AI Document Summarizer Web Application
-```
+Returns the main web application.
 
 ---
 
@@ -310,11 +233,11 @@ AI Document Summarizer Web Application
 
 Checks whether the backend is running.
 
-### Example Response
+### Example response
 
 ```json
 {
-    "status": "healthy"
+  "status": "healthy"
 }
 ```
 
@@ -332,25 +255,49 @@ Uploads and processes a document.
 .txt
 ```
 
-### Example Response
+### Example response
 
 ```json
 {
-    "filename": "example.txt",
-    "characters": 1482,
-    "word_count": 245,
-    "summary": "Document summary...",
-    "key_points": [
-        "Important point one",
-        "Important point two",
-        "Important point three"
-    ]
+  "filename": "example.txt",
+  "characters": 1482,
+  "word_count": 245,
+  "summary": "Document summary...",
+  "key_points": [
+    "Important point one",
+    "Important point two",
+    "Important point three"
+  ]
 }
 ```
 
 ---
 
-# 🚀 Installation
+# 📊 Results
+
+After processing a document, the application displays:
+
+### 📝 Summary
+
+A concise version of the document's content.
+
+### 📌 Key Points
+
+Important sentences extracted from the document.
+
+### 📈 Statistics
+
+* Word count
+* Character count
+* Original filename
+
+### 📥 Download
+
+The generated summary and key points can be downloaded as a `.txt` file.
+
+---
+
+# ⚙️ Installation
 
 ## Prerequisites
 
@@ -362,31 +309,25 @@ Make sure you have:
 
 ---
 
-## 1. Clone the Repository
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/shashanknagabhushana/ai-document-summarizer.git
 ```
 
----
-
-## 2. Enter the Project
+## 2. Enter the project
 
 ```bash
 cd ai-document-summarizer
 ```
 
----
-
-## 3. Create Virtual Environment
+## 3. Create a virtual environment
 
 ```bash
 python3 -m venv venv
 ```
 
----
-
-## 4. Activate Virtual Environment
+## 4. Activate the virtual environment
 
 ### macOS / Linux
 
@@ -400,27 +341,21 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
----
-
-## 5. Install Dependencies
+## 5. Install dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
----
-
-## 6. Start the Server
+## 6. Start the application
 
 ```bash
 python -m uvicorn backend.main:app --reload
 ```
 
----
+## 7. Open the application
 
-## 7. Open the Application
-
-Open your browser and visit:
+Visit:
 
 ```text
 http://127.0.0.1:8000
@@ -438,71 +373,66 @@ Open:
 http://127.0.0.1:8000/docs
 ```
 
-You can use the Swagger interface to test the API endpoints directly.
+The Swagger interface can be used to test the API directly.
 
 ---
 
 # 🧪 Testing
 
-The application can be tested using:
+You can test the application with:
 
 ### TXT
 
-Create a text file:
-
-```text
-test.txt
-```
-
-Add sample content and upload it through the application.
+Create a `.txt` file containing sample text and upload it.
 
 ### PDF
 
-Upload any text-based PDF document.
+Upload a text-based PDF document.
 
 ### DOCX
 
-Upload a Microsoft Word document containing text.
+Upload a Word document containing readable text.
+
+The application should return the document summary, key points, and statistics.
 
 ---
 
-# 🔐 Security Considerations
+# 🔐 Security
 
-The application currently performs basic file validation.
+The application currently includes basic file validation and filename sanitization.
 
 It:
 
-* Checks supported file extensions
-* Sanitizes uploaded filenames
-* Stores uploaded files in the uploads directory
-* Rejects unsupported formats
+* Validates supported extensions
+* Prevents unsafe file paths
 * Handles extraction errors
+* Rejects unsupported file formats
 
-For production deployment, additional security measures should be implemented, including:
+For production deployment, additional security should be implemented, including:
 
-* File size limits
+* File-size limits
 * Malware scanning
 * Authentication
 * Rate limiting
-* Secure temporary storage
 * HTTPS
-* Stronger file validation
+* Secure file storage
+* Stronger file-content validation
 
 ---
 
-# 📈 Future Development
+# 📈 Future Improvements
 
-The current version provides the complete document-processing workflow.
+The current version provides a complete local document-processing workflow.
 
 Possible future improvements include:
 
-### 🤖 AI Integration
+### 🤖 AI-Powered Summarization
 
-Replace the lightweight local summarization approach with a modern AI model.
+Integrate a modern AI model to generate more natural and context-aware summaries.
 
-### 🎯 Multiple Summary Modes
+### 🎚️ Summary Length
 
-Allow users to choose:
+Allow users to select:
 
 ```text
 Short
@@ -510,7 +440,7 @@ Medium
 Detailed
 ```
 
-### 🖱️ Drag & Drop
+### 🖱️ Drag and Drop
 
 Allow users to drag documents directly into the upload area.
 
@@ -518,48 +448,95 @@ Allow users to drag documents directly into the upload area.
 
 Store previously processed documents and their summaries.
 
-### 👤 Authentication
+### 👤 User Authentication
 
-Add user accounts and private document storage.
+Allow users to create accounts and securely access their documents.
 
-### ☁️ Cloud Deployment
-
-Deploy the application to a cloud platform.
-
-### 🗄️ Database
+### 🗄️ Database Integration
 
 Store document metadata and generated summaries.
 
-### 🌐 Multiple Languages
+### ☁️ Cloud Deployment
 
-Support document summarization in multiple languages.
+Deploy the application for public access.
+
+### 🌐 Multi-Language Support
+
+Support documents written in multiple languages.
 
 ---
 
-# 🎯 Project Goals
+# 🎯 Learning Objectives
 
-This project was developed to demonstrate practical skills in:
+This project demonstrates practical experience with:
 
-* Backend API development
+* Python programming
+* FastAPI development
+* REST API design
 * Frontend development
+* JavaScript API integration
 * File handling
 * Document processing
-* REST API communication
-* Python programming
-* Web application architecture
-* Git and GitHub workflow
+* Text processing
+* Error handling
+* Git and GitHub
+* Virtual environments
+* Basic web application architecture
 
 ---
 
-# 💡 Why This Project?
+# 💡 Project Motivation
 
-Long documents can take significant time to read and understand.
+Reading long documents can take significant time, especially when users only need the most important information.
 
-This application provides a simple workflow:
+This project aims to simplify that process through a straightforward workflow:
 
-> **Upload → Process → Understand → Download**
+```text
+Upload
+   ↓
+Extract
+   ↓
+Process
+   ↓
+Summarize
+   ↓
+Understand
+   ↓
+Download
+```
 
-The goal is to reduce the time required to identify the most important information in a document.
+The application focuses on keeping the user experience simple while providing useful document insights.
+
+---
+
+# 📌 Current Status
+
+### ✅ Completed
+
+The current version includes:
+
+* [x] PDF upload
+* [x] DOCX upload
+* [x] TXT upload
+* [x] Text extraction
+* [x] Local summarization
+* [x] Key-point extraction
+* [x] Word count
+* [x] Character count
+* [x] Summary download
+* [x] Responsive frontend
+* [x] FastAPI backend
+* [x] GitHub project setup
+
+### 🚧 Planned
+
+* [ ] AI-powered summarization
+* [ ] Drag-and-drop upload
+* [ ] Summary length selection
+* [ ] Document history
+* [ ] Authentication
+* [ ] Database
+* [ ] Cloud deployment
 
 ---
 
@@ -567,28 +544,24 @@ The goal is to reduce the time required to identify the most important informati
 
 ## Shashank P N
 
-Computer Science and Engineering Student
+**Computer Science and Engineering Student**
 
-Interested in:
+### Interests
 
 * Software Development
 * Artificial Intelligence
-* Data Analytics
 * Machine Learning
+* Data Analytics
 * Cloud Technologies
 
 ---
 
-# ⭐ Project Status
+# ⭐ Support
 
-**Current Status:** ✅ Completed
-
-The current application supports document uploading, text extraction, local summarization, key-point extraction, document statistics, and summary downloading.
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
 
 ---
 
-## ⭐ If you find this project useful
-
-Consider giving the repository a ⭐ on GitHub.
-
-**Built with Python, FastAPI, HTML, CSS, and JavaScript.**
+<p align="center">
+  <strong>Built with Python, FastAPI, HTML, CSS, and JavaScript.</strong>
+</p>
