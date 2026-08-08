@@ -1,4 +1,5 @@
 # 📄 AI Document Summarizer
+open: http://127.0.0.1:8000
 
 <p align="center">
   <strong>Upload documents. Extract important information. Get a concise summary.</strong>
